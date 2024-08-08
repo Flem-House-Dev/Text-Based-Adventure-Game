@@ -37,7 +37,7 @@ const UPDATE_USER_PROGRESS = gql`
 
 const Game = ({ match }) => {
   const [currentScene, setCurrentScene] = useState(null);
-  const userId = localStorage.getItem('userId'); // Replace with actual userId logic
+  const userId = localStorage.getItem('userId'); 
   const gameId = match.params.id;
 
   const { loading, error, data } = useQuery(GET_GAME, {
