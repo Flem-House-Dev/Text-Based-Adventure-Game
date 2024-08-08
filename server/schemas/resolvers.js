@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models');
+const { User, Thought, Character } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -20,7 +20,13 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('thoughts');
       }
-      throw AuthenticationError;
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    getCharacter: async (parent, { id }) => {
+      return Character.findById(id);
+    },
+    listCharacters: async () => {
+      return Character.find();
     },
   },
 
@@ -34,13 +40,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw AuthenticationError;
+        throw new AuthenticationError('No user found with this email address');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw AuthenticationError;
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
@@ -61,8 +67,7 @@ const resolvers = {
 
         return thought;
       }
-      throw AuthenticationError;
-      ('You need to be logged in!');
+      throw new AuthenticationError('You need to be logged in!');
     },
     addComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {
@@ -79,7 +84,7 @@ const resolvers = {
           }
         );
       }
-      throw AuthenticationError;
+      throw new AuthenticationError('You need to be logged in!');
     },
     removeThought: async (parent, { thoughtId }, context) => {
       if (context.user) {
@@ -95,7 +100,7 @@ const resolvers = {
 
         return thought;
       }
-      throw AuthenticationError;
+      throw new AuthenticationError('You need to be logged in!');
     },
     removeComment: async (parent, { thoughtId, commentId }, context) => {
       if (context.user) {
@@ -112,7 +117,17 @@ const resolvers = {
           { new: true }
         );
       }
-      throw AuthenticationError;
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    createCharacter: async (parent, { name, health, inventory }) => {
+      const newCharacter = new Character({ name, health, inventory });
+      return await newCharacter.save();
+    },
+    updateCharacter: async (parent, { id, health }) => {
+      return await Character.findByIdAndUpdate(id, { health }, { new: true });
+    },
+    deleteCharacter: async (parent, { id }) => {
+      return await Character.findByIdAndRemove(id);
     },
   },
 };
