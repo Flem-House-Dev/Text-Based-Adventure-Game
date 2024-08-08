@@ -15,5 +15,11 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.11.4",
+    "bootstrap": "^5.3.3",
+    "graphql": "^16.9.0",
+    "react-bootstrap": "^2.10.4"
   }
 }

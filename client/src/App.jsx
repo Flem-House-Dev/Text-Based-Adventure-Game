@@ -1,4 +1,4 @@
-import './App.css';
+import React from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,6 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -38,11 +39,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
+      <div className="d-flex flex-column min-vh-100">
         <Header />
-        <div className="container">
+        <Container className="flex-grow-1 mt-4">
           <Outlet />
-        </div>
+        </Container>
         <Footer />
       </div>
     </ApolloProvider>
