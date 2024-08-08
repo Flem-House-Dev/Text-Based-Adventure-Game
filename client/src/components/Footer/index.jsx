@@ -1,34 +1,18 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
-const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+function Footer() {
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => navigate(-1)}
-          >
-            &larr; Go Back
-          </button>
-        )}
-        <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by the Tech Thoughts team.
-        </h4>
-      </div>
+    <footer className="bg-dark text-light py-3">
+      <Container>
+        <Row>
+          <Col className="text-center">
+            &copy; {new Date().getFullYear()} Text Adventure Game. All rights reserved.
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
-};
+}
 
 export default Footer;
