@@ -1,12 +1,21 @@
 const typeDefs = `
-  type User {
-    _id: ID
-    username: String
-    email: String
-    password: String
-    thoughts: [Thought]!
-  }
+type Character {
+  id: ID!
+  name: String!
+  health: Int!
+  inventory: [String!]!
+}
 
+type Query {
+  getCharacter(id: ID!): Character
+  listCharacters: [Character!]!
+}
+
+type Mutation {
+  createCharacter(name: String!, health: Int!, inventory: [String!]!): Character
+  updateCharacter(id: ID!, health: Int): Character
+  deleteCharacter(id: ID!): Character
+}
   type Thought {
     _id: ID
     thoughtText: String
