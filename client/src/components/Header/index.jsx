@@ -32,14 +32,6 @@ function Header() {
           Signup
         </Link>
       </li>
-      <li className="nav-item">
-        <Link
-          to="/game"
-          className={currentPage === '/game' ? 'nav-link active' : 'nav-link'}
-        >
-          Game
-        </Link>
-      </li>
     </ul>
     </>
   );
