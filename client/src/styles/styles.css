@@ -18,7 +18,7 @@ body {
     font-size: 3rem;
     text-shadow: 0 0 30px var(--pur); 
     animation: flicker 2s infinite; 
-    margin: 0 50px 0 50px;
+    margin: 0 50px 20px 50px;
 }
   
 /* Navbar Styles */
@@ -53,4 +53,24 @@ body {
     50% { opacity: 0.6; }
     100% { opacity: 1; }
 }
+
+/* Dashboard */
+.dashboard {
+    padding: 0 100px 0 100px;
+}
+
+.start-game-button {
+    background-color: var(--pur); 
+    color: white; 
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
   
+.start-game-button:hover {
+    background-color: #9ec6f0; 
+    color: var(--pur);
+}
