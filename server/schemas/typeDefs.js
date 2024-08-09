@@ -1,56 +1,58 @@
 const typeDefs = `
-type Character {
-  id: ID!
-  name: String!
-  health: Int!
-  inventory: [String!]!
-}
-
-type Query {
-  getCharacter(id: ID!): Character
-  listCharacters: [Character!]!
-}
-
-type Mutation {
-  createCharacter(name: String!, health: Int!, inventory: [String!]!): Character
-  updateCharacter(id: ID!, health: Int): Character
-  deleteCharacter(id: ID!): Character
-}
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
+ type User {
+    _id: ID!
+    username: String!
+    email: String!
+    password: String!
   }
 
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+  type Action {
+    actionText: String!
+    nextSceneId: String!
   }
 
-  type Auth {
-    token: ID!
-    user: User
+  type Scene {
+    sceneId: String!
+    description: String!
+    actions: [Action!]!
+  }
+
+  type Game {
+    _id: ID!
+    title: String!
+    description: String!
+    scenes: [Scene!]!
+  }
+
+  type UserProgress {
+    _id: ID!
+    userId: ID!
+    gameId: ID!
+    currentSceneId: String!
   }
 
   type Query {
-    users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
-    me: User
+    users: [User!]!
+    games: [Game!]!
+    game(id: ID!): Game
+    userProgress(userId: ID!, gameId: ID!): UserProgress
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    createUser(username: String!, email: String!, password: String!): User
+    createGame(title: String!, description: String!, scenes: [SceneInput!]!): Game
+    updateUserProgress(userId: ID!, gameId: ID!, currentSceneId: String!): UserProgress
+  }
+
+  input ActionInput {
+    actionText: String!
+    nextSceneId: String!
+  }
+
+  input SceneInput {
+    sceneId: String!
+    description: String!
+    actions: [ActionInput!]!
   }
 `;
 
