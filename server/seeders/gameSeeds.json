@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Title",
+    "description": "description",
+    "scenes": [
+      {
+        "sceneId": "start",
+        "description": "description",
+        "actions": [
+          { "actionText": "action", "nextSceneId": "next" },
+          { "actionText": "Leave", "nextSceneId": "end" }
+        ]
+      },
+      {
+        "sceneId": "next",
+        "description": "description",
+        "actions": [
+          { "actionText": "action", "nextSceneId": "next" },
+          { "actionText": "Leave", "nextSceneId": "end" }
+        ]
+      },
+      {
+        "sceneId": "next",
+        "description": "description",
+        "actions": [
+          { "actionText": "action", "nextSceneId": "next" },
+          { "actionText": "Leave", "nextSceneId": "end" }
+        ]
+      },
+      {
+        "sceneId": "next",
+        "description": "description",
+        "actions": [
+          { "actionText": "action", "nextSceneId": "next" },
+          { "actionText": "Leave", "nextSceneId": "end" }
+        ]
+      },
+      {
+        "sceneId": "next",
+        "description": "description",
+        "actions": [
+          { "actionText": "action", "nextSceneId": "next" },
+          { "actionText": "Leave", "nextSceneId": "end" }
+        ]
+      },
+      {
+        "sceneId": "next",
+        "description": "description",
+        "actions": [
+          { "actionText": "action", "nextSceneId": "next" },
+          { "actionText": "Leave", "nextSceneId": "end" }
+        ]
+      },
+      {
+        "sceneId": "end",
+        "description": "The adventure ends here. Thank you for playing!",
+        "actions": []
+      }
+    ]
+  }
+]
