@@ -6,23 +6,23 @@ const Character = require('../models/Character'); // Adjust path as needed
 
 const resolvers = {
   Query: {
-    // Fetch all characters
-    async getCharacters() {
-      try {
-        return await Character.find();
-      } catch (error) {
-        throw new Error('Error fetching characters');
-      }
-    },
+    // // Fetch all characters
+    // async getCharacters() {
+    //   try {
+    //     return await Character.find();
+    //   } catch (error) {
+    //     throw new Error('Error fetching characters');
+    //   }
+    // },
 
-    // Fetch a single character by ID
-    async getCharacter(_, { id }) {
-      try {
-        return await Character.findById(id);
-      } catch (error) {
-        throw new Error('Error fetching character');
-      }
-    },
+    // // Fetch a single character by ID
+    // async getCharacter(_, { id }) {
+    //   try {
+    //     return await Character.findById(id);
+    //   } catch (error) {
+    //     throw new Error('Error fetching character');
+    //   }
+    // },
 
     // Fetch all users
     async users() {
@@ -44,33 +44,33 @@ const resolvers = {
   },
 
   Mutation: {
-    // Create a new character
-    async createCharacter(_, { input }) {
-      try {
-        const character = new Character(input);
-        return await character.save();
-      } catch (error) {
-        throw new Error('Error creating character');
-      }
-    },
+    // // Create a new character
+    // async createCharacter(_, { input }) {
+    //   try {
+    //     const character = new Character(input);
+    //     return await character.save();
+    //   } catch (error) {
+    //     throw new Error('Error creating character');
+    //   }
+    // },
 
-    // Update an existing character by ID
-    async updateCharacter(_, { id, input }) {
-      try {
-        return await Character.findByIdAndUpdate(id, input, { new: true });
-      } catch (error) {
-        throw new Error('Error updating character');
-      }
-    },
+    // // Update an existing character by ID
+    // async updateCharacter(_, { id, input }) {
+    //   try {
+    //     return await Character.findByIdAndUpdate(id, input, { new: true });
+    //   } catch (error) {
+    //     throw new Error('Error updating character');
+    //   }
+    // },
 
-    // Delete a character by ID
-    async deleteCharacter(_, { id }) {
-      try {
-        return await Character.findByIdAndRemove(id);
-      } catch (error) {
-        throw new Error('Error deleting character');
-      }
-    },
+    // // Delete a character by ID
+    // async deleteCharacter(_, { id }) {
+    //   try {
+    //     return await Character.findByIdAndRemove(id);
+    //   } catch (error) {
+    //     throw new Error('Error deleting character');
+    //   }
+    // },
 
     // Create a new user
     async createUser(_, { username, email, password }) {
