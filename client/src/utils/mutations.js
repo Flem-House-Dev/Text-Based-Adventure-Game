@@ -66,25 +66,25 @@ export const UPDATE_GAME = gql`
 `;
 
 // add new character
-export const ADD_CHARACTER = gql`
-  mutation AddCharacter($name: String!, $health: Int!, $inventory: [String]) {
-    addCharacter(name: $name, health: $health, inventory: $inventory) {
-      _id
-      name
-      health
-      inventory
-    }
-  }
-`;
+// export const ADD_CHARACTER = gql`
+//   mutation AddCharacter($name: String!, $health: Int!, $inventory: [String]) {
+//     addCharacter(name: $name, health: $health, inventory: $inventory) {
+//       _id
+//       name
+//       health
+//       inventory
+//     }
+//   }
+// `;
 
-// Mutation to update an existing character
-export const UPDATE_CHARACTER = gql`
-  mutation UpdateCharacter($id: ID!, $name: String, $health: Int, $inventory: [String]) {
-    updateCharacter(id: $id, name: $name, health: $health, inventory: $inventory) {
-      _id
-      name
-      health
-      inventory
-    }
-  }
-`;
+// update existing character
+// export const UPDATE_CHARACTER = gql`
+//   mutation UpdateCharacter($id: ID!, $name: String, $health: Int, $inventory: [String]) {
+//     updateCharacter(id: $id, name: $name, health: $health, inventory: $inventory) {
+//       _id
+//       name
+//       health
+//       inventory
+//     }
+//   }
+// `;

@@ -11,32 +11,7 @@ export const QUERY_USER = gql`
   }
 `;
 
-
-// fetch all characters
-export const QUERY_CHARACTERS = gql`
-  query GetCharacters {
-    characters {
-      _id
-      name
-      health
-      inventory
-    }
-  }
-`;
-
-// fetch a single character by ID
-export const QUERY_CHARACTER = gql`
-  query GetCharacter($id: ID!) {
-    character(id: $id) {
-      _id
-      name
-      health
-      inventory
-    }
-  }
-`;
-
-// fetch the current user (assuming you have a session-based query)
+// fetch the current user
 export const QUERY_ME = gql`
   query Me {
     me {
@@ -85,3 +60,26 @@ export const QUERY_GAME = gql`
   }
 `;
 
+// fetch all characters
+// export const QUERY_CHARACTERS = gql`
+//   query GetCharacters {
+//     characters {
+//       _id
+//       name
+//       health
+//       inventory
+//     }
+//   }
+// `;
+
+// fetch a single character by ID
+// export const QUERY_CHARACTER = gql`
+//   query GetCharacter($id: ID!) {
+//     character(id: $id) {
+//       _id
+//       name
+//       health
+//       inventory
+//     }
+//   }
+// `;
