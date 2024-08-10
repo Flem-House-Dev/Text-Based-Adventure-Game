@@ -37,7 +37,8 @@ const resolvers = {
       try {
         return await Game.findById(id);
       } catch (error) {
-      throw new Error('Error fetching game');
+        throw new Error('Error fetching game');
+      }
     }
   },
 
@@ -70,7 +71,25 @@ const resolvers = {
     //   }
     // },
 
-    // Create a new user
+    // login a user
+    async login(_, { email, password }) {
+      try {
+        const user = await User.findOne({ email });
+        if (!user) {
+          throw new Error('User not found');
+        }
+        const valid = await bcrypt.compare(password, user.password);
+        if (!valid) {
+          throw new Error('Invalid password');
+        }
+        const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+        return { token, user };
+      } catch (error) {
+        throw new Error('Error logging in');
+      }
+    },
+
+    // create a new user
     async createUser(_, { username, email, password }) {
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
@@ -97,8 +116,23 @@ const resolvers = {
       } catch (error) {
         throw new Error('Error creating game');
       }
+    },
+  
+    async updateGame(_, { id, title, description, scenes }) {
+      try {
+        return await Game.findByIdAndUpdate(id, { title, description, scenes }, { new: true });
+      } catch (error) {
+        throw new Error('Error updating game');
+      }
+    },
+
+    async deleteGame(_, { id }) {
+      try {
+        return await Game.findByIdAndRemove(id);
+      } catch (error) {
+        throw new Error('Error deleting game');
+      }
     }
-  }
   }
 };
 

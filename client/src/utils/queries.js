@@ -22,7 +22,7 @@ export const GET_ME = gql`
   }
 `;
 
-// fetch game
+// fetch a game by ID
 export const GET_GAME = gql`
   query GetGame($id: ID!) {
     game(id: $id) {

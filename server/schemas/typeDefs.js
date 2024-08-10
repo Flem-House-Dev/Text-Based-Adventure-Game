@@ -36,8 +36,11 @@ const typeDefs = `
   }
 
   type Mutation {
+    login(email: String!, password: String!): AuthPayload
     createUser(username: String!, email: String!, password: String!): User
     createGame(title: String!, description: String!, scenes: [SceneInput!]!): Game
+    updateGame(id: ID!, title: String, description: String, scenes: [SceneInput]): Game
+    deleteGame(id: ID!): Game
   }
 
   input ActionInput {

@@ -46,6 +46,35 @@ export const ADD_GAME = gql`
   }
 `;
 
+// update existing game
+export const UPDATE_GAME = gql`
+  mutation UpdateGame($id: ID!, $title: String, $description: String, $scenes: [SceneInput]) {
+    updateGame(id: $id, title: $title, description: $description, scenes: $scenes) {
+      _id
+      title
+      description
+      scenes {
+        sceneId
+        description
+        actions {
+          actionText
+          nextSceneId
+        }
+      }
+    }
+  }
+`;
+
+// delete existing game
+export const DELETE_GAME = gql`
+  mutation DeleteGame($id: ID!) {
+    deleteGame(id: $id) {
+      _id
+      title
+    }
+  }
+`;
+
 // add new character
 // export const ADD_CHARACTER = gql`
 //   mutation AddCharacter($name: String!, $health: Int!, $inventory: [String]) {
