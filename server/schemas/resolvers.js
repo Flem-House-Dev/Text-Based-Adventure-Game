@@ -2,7 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Game = require('../models/Game');
-const Character = require('../models/Character'); // Adjust path as needed
+const UserProgress = require('../models/UserProgress');
+const Character = require('../models/Character'); 
 
 const resolvers = {
   Query: {
@@ -24,21 +25,28 @@ const resolvers = {
     //   }
     // },
 
-    // Fetch all users
-    async users() {
+    // Fetch single users
+    async user(_, { id }) {
       try {
-        return await User.find();
+        return await User.findById(id);
       } catch (error) {
-        throw new Error('Error fetching users');
+        throw new Error('Error fetching user');
       }
     },
 
-    // Fetch all games
-    async games() {
+    async game(_, { id }) {
       try {
-        return await Game.find();
+        return await Game.findById(id);
       } catch (error) {
-        throw new Error('Error fetching games');
+        throw new Error('Error fetching game');
+      }
+    },
+
+    async progress(_, { userId, gameId }) {
+      try {
+        return await UserProgress.findOne({ userId, gameId });
+      } catch (error) {
+        throw new Error('Error fetching user progress');
       }
     }
   },
@@ -72,8 +80,26 @@ const resolvers = {
     //   }
     // },
 
-    // Create a new user
-    async createUser(_, { username, email, password }) {
+    // login a user
+    async login(_, { email, password }) {
+      try {
+        const user = await User.findOne({ email });
+        if (!user) {
+          throw new Error('User not found');
+        }
+        const valid = await bcrypt.compare(password, user.password);
+        if (!valid) {
+          throw new Error('Invalid password');
+        }
+        const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+        return { token, user };
+      } catch (error) {
+        throw new Error('Error logging in');
+      }
+    },
+
+    // add a new user
+    async addUser(_, { username, email, password }) {
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
         const user = new User({
@@ -84,22 +110,20 @@ const resolvers = {
         const result = await user.save();
         return { ...result._doc, password: null };
       } catch (error) {
-        throw new Error('Error creating user');
+        throw new Error('Error adding user');
       }
     },
 
-    // Create a new game
-    async createGame(_, { title, description, actions }) {
+    async updateProgress(_, { userId, gameId, currentSceneId }) {
       try {
-        const game = new Game({
-          title,
-          description,
-          actions
-        });
-        const result = await game.save();
-        return result;
+        const progress = await UserGameProgress.findOneAndUpdate(
+          { userId, gameId },
+          { currentSceneId },
+          { new: true, upsert: true }
+        );
+        return progress;
       } catch (error) {
-        throw new Error('Error creating game');
+        throw new Error('Error updating progress');
       }
     }
   }

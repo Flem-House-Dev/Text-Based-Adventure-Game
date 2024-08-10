@@ -17,50 +17,21 @@ export const LOGIN_USER = gql`
 export const ADD_USER = gql`
   mutation AddUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-        email
-      }
-    }
-  }
+      _id
+      username
+      email
+    }  }
 `;
 
-// add new game
-export const ADD_GAME = gql`
-  mutation AddGame($title: String!, $description: String!, $scenes: [SceneInput]) {
-    addGame(title: $title, description: $description, scenes: $scenes) {
-      _id
-      title
-      description
-      scenes {
-        sceneId
-        description
-        actions {
-          actionText
-          nextSceneId
-        }
-      }
-    }
-  }
-`;
 
-// update game
-export const UPDATE_GAME = gql`
-  mutation UpdateGame($id: ID!, $title: String, $description: String, $scenes: [SceneInput]) {
-    updateGame(id: $id, title: $title, description: $description, scenes: $scenes) {
+// Update user progress
+export const UPDATE_PROGRESS = gql`
+  mutation UpdateProgress($userId: ID!, $gameId: ID!, $currentSceneId: String!) {
+    updateProgress(userId: $userId, gameId: $gameId, currentSceneId: $currentSceneId) {
       _id
-      title
-      description
-      scenes {
-        sceneId
-        description
-        actions {
-          actionText
-          nextSceneId
-        }
-      }
+      userId
+      gameId
+      currentSceneId
     }
   }
 `;
