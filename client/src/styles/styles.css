@@ -1,40 +1,35 @@
 /* Global Styles */
-:root {
-    --color-background: #2a2350;
-    --color-primary: #4c25b8;
-    --color-secondary: #eff1ef;
-    --color-link-hover: #ffffff50;
-    --color-text: #ffffff;
-    --color-shadow: rgba(0, 0, 0, 0.7);
-}
-
 body {
-    background-color: var(--color-background);
-    color: var(--color-text);
+    background-color: var(--blu); 
+    color: #ffffff; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+:root {
+    --blu: #2a2350;
+    --pur: #4c25b8;
+}
+  
 /* Header Styles */
 .header {
-    color: var(--color-secondary);
+    color: #eff1ef;
     font-size: 3rem;
-
-    text-shadow: 0 0 30px var(--color-primary);
-    animation: flicker 2s infinite;
-    margin: 0 50px;
+    text-shadow: 0 0 30px var(--pur); 
+    animation: flicker 2s infinite; 
+    margin: 0 50px 20px 50px;
 }
-
+  
 /* Navbar Styles */
 .nav {
-    background: linear-gradient(to right, var(--color-link-hover), var(--color-link-hover));
+    background: linear-gradient(to right, #f7f2f17a, #ffffff50); 
     padding: 15px 0;
-    box-shadow: 0 4px 10px var(--color-shadow);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); 
 }
-
+  
 .nav-link {
-    color: var(--color-primary);
+    color: var(--pur); 
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
@@ -42,14 +37,13 @@ body {
     border-radius: 5px;
     position: relative;
     text-shadow: 0 0 20px #c1bed3d5;
-    margin: 0 50px;
-    transition: all 0.3s ease;
+    margin: 0 50px 0 80px;
 }
-
+  
 .nav-link:hover {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-    border: 2px solid var(--color-background);
+    background-color: var(--pur); 
+    color: var(--blu); 
+    border: 2px solid var(--blu); 
     box-shadow: 0 0 15px white;
 }
 
@@ -58,7 +52,6 @@ body {
     0% { opacity: 1; }
     50% { opacity: 0.6; }
     100% { opacity: 1; }
-
 }
 
 /* Dashboard */

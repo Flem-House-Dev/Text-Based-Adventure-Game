@@ -1,60 +1,85 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_USER = gql`
-  query user($username: String!) {
+// fetch user details based on username
+export const GET_USERS = gql`
+  query User($username: String!) {
     user(username: $username) {
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-    }
-  }
-`;
-
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
-    }
-  }
-`;
-
-export const QUERY_ME = gql`
-  query me {
+// fetch the current user
+export const GET_ME = gql`
+  query Me {
     me {
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        thoughtAuthor
-        createdAt
+    }
+  }
+`;
+
+// fetch game
+export const GET_GAME = gql`
+  query GetGames {
+    games {
+      _id
+      title
+      description
+      scenes {
+        sceneId
+        description
+        actions {
+          actionText
+          nextSceneId
+        }
       }
     }
   }
 `;
+
+// fetch a single game by ID
+export const QUERY_GAME = gql`
+  query GetGame($id: ID!) {
+    game(id: $id) {
+      _id
+      title
+      description
+      scenes {
+        sceneId
+        description
+        actions {
+          actionText
+          nextSceneId
+        }
+      }
+    }
+  }
+`;
+
+// fetch all characters
+// export const QUERY_CHARACTERS = gql`
+//   query GetCharacters {
+//     characters {
+//       _id
+//       name
+//       health
+//       inventory
+//     }
+//   }
+// `;
+
+// fetch a single character by ID
+// export const QUERY_CHARACTER = gql`
+//   query GetCharacter($id: ID!) {
+//     character(id: $id) {
+//       _id
+//       name
+//       health
+//       inventory
+//     }
+//   }
+// `;
