@@ -46,25 +46,6 @@ export const ADD_GAME = gql`
   }
 `;
 
-// update game
-export const UPDATE_GAME = gql`
-  mutation UpdateGame($id: ID!, $title: String, $description: String, $scenes: [SceneInput]) {
-    updateGame(id: $id, title: $title, description: $description, scenes: $scenes) {
-      _id
-      title
-      description
-      scenes {
-        sceneId
-        description
-        actions {
-          actionText
-          nextSceneId
-        }
-      }
-    }
-  }
-`;
-
 // add new character
 // export const ADD_CHARACTER = gql`
 //   mutation AddCharacter($name: String!, $health: Int!, $inventory: [String]) {

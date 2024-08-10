@@ -2,8 +2,8 @@ import { gql } from '@apollo/client';
 
 // fetch user details based on username
 export const GET_USERS = gql`
-  query User($username: String!) {
-    user(username: $username) {
+  query Users {
+    users {
       _id
       username
       email
@@ -24,25 +24,6 @@ export const GET_ME = gql`
 
 // fetch game
 export const GET_GAME = gql`
-  query GetGames {
-    games {
-      _id
-      title
-      description
-      scenes {
-        sceneId
-        description
-        actions {
-          actionText
-          nextSceneId
-        }
-      }
-    }
-  }
-`;
-
-// fetch a single game by ID
-export const QUERY_GAME = gql`
   query GetGame($id: ID!) {
     game(id: $id) {
       _id

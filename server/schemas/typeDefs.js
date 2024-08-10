@@ -38,17 +38,15 @@ const typeDefs = `
   }
 
   type Query {
-    users: [User!]!
-    games: [Game!]!
-    # characters: [Character!]
-    game(id: ID!): Game
-    userProgress(userId: ID!, gameId: ID!): UserProgress
+    user(id: ID!): User
+    game: Game
+    userProgress(userId: ID!): UserProgress
   }
 
   type Mutation {
     createUser(username: String!, email: String!, password: String!): User
     createGame(title: String!, description: String!, scenes: [SceneInput!]!): Game
-    updateUserProgress(userId: ID!, gameId: ID!, currentSceneId: String!): UserProgress
+    updateUserProgress(userId: ID!, currentSceneId: String!): UserProgress
   }
 
   input ActionInput {

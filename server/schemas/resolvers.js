@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Game = require('../models/Game');
-const Character = require('../models/Character'); // Adjust path as needed
+const Character = require('../models/Character'); 
 
 const resolvers = {
   Query: {
@@ -33,13 +33,11 @@ const resolvers = {
       }
     },
 
-    // Fetch all games
-    async games() {
+    async game(_, { id }) {
       try {
-        return await Game.find();
+        return await Game.findById(id);
       } catch (error) {
-        throw new Error('Error fetching games');
-      }
+      throw new Error('Error fetching game');
     }
   },
 
@@ -87,21 +85,7 @@ const resolvers = {
         throw new Error('Error creating user');
       }
     },
-
-    // Create a new game
-    async createGame(_, { title, description, actions }) {
-      try {
-        const game = new Game({
-          title,
-          description,
-          actions
-        });
-        const result = await game.save();
-        return result;
-      } catch (error) {
-        throw new Error('Error creating game');
-      }
-    }
+  }
   }
 };
 
