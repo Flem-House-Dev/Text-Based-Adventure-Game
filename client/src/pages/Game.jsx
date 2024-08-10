@@ -1,11 +1,11 @@
 // src/components/Games.jsx
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_GAMES, GET_GAME } from '../utils/queries';
+import { GET_GAME } from '../utils/queries';
 import { ADD_GAME, UPDATE_GAME } from '../utils/mutations';
 
 const Games = () => {
-  const { loading, error, data } = useQuery(GET_GAMES);
+  const { loading, error, data } = useQuery(GET_GAME);
   const [addGame] = useMutation(ADD_GAME);
   const [updateGame] = useMutation(UPDATE_GAME);
   const [selectedGame, setSelectedGame] = useState(null);
