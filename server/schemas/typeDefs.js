@@ -6,6 +6,12 @@ const typeDefs = `
     password: String!
   }
 
+  type Character {
+    _id: ID!
+    name: String!
+    health: Number!
+  }
+
   type Action {
     actionText: String!
     nextSceneId: String!
@@ -34,6 +40,7 @@ const typeDefs = `
   type Query {
     users: [User!]!
     games: [Game!]!
+    characters: [Character!]
     game(id: ID!): Game
     userProgress(userId: ID!, gameId: ID!): UserProgress
   }
