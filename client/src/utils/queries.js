@@ -24,11 +24,10 @@ export const GET_ME = gql`
 
 // fetch user progress
 export const GET_PROGRESS = gql`
-  query GetProgress($userId: ID!, $gameId: ID!) {
-    progress(userId: $userId, gameId: $gameId) {
+  query GetProgress($userId: ID!) {
+    progress(userId: $userId) {
       _id
       userId
-      gameId
       currentSceneId
     }
   }

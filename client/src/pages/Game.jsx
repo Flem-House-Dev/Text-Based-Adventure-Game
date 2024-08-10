@@ -17,7 +17,7 @@ const Game = () => {
   const handleAction = async (nextSceneId) => {
     setCurrentSceneId(nextSceneId);
     try {
-      await updateProgress({ variables: { userId: 'USER_ID', gameId: data.game._id, currentSceneId: nextSceneId } });
+      await updateProgress({ variables: { userId: 'USER_ID', currentSceneId: nextSceneId } });
     } catch (err) {
       console.error('Error updating progress:', err.message);
     }
