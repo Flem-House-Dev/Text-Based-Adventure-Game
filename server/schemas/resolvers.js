@@ -1,8 +1,8 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Game = require('../models/Game');
-const Character = require('./models/Character'); // Adjust path as needed
+const Character = require('../models/Character'); // Adjust path as needed
 
 const resolvers = {
   Query: {
