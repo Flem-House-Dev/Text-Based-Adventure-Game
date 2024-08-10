@@ -3,10 +3,8 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_GAME } from '../utils/queries';
 import { UPDATE_PROGRESS } from '../utils/mutations';
 
-const Game = ({ gameId }) => {
-  const { loading, error, data } = useQuery(GET_GAME, {
-    variables: { id: gameId }
-  });
+const Game = () => {
+  const { loading, error, data } = useQuery(GET_GAME);
   const [updateProgress] = useMutation(UPDATE_PROGRESS);
   const [currentSceneId, setCurrentSceneId] = useState(null);
 

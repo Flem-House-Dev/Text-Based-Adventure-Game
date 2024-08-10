@@ -116,7 +116,7 @@ const resolvers = {
 
     async updateProgress(_, { userId, gameId, currentSceneId }) {
       try {
-        const progress = await UserGameProgress.findOneAndUpdate(
+        const progress = await UserProgress.findOneAndUpdate(
           { userId, gameId },
           { currentSceneId },
           { new: true, upsert: true }

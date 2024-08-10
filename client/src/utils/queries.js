@@ -34,19 +34,18 @@ export const GET_PROGRESS = gql`
   }
 `;
 
-// fetch a game by ID
+// fetch gamr
 export const GET_GAME = gql`
-  query GetGame($id: ID!) {
-    game(id: $id) {
+  query GetGame {
+    game {
       _id
       title
-      description
       scenes {
         sceneId
         description
         actions {
-          actionText
           nextSceneId
+          actionText
         }
       }
     }
