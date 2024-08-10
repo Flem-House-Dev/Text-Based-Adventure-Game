@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+// login user
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -12,45 +13,78 @@ export const LOGIN_USER = gql`
   }
 `;
 
+// add new user
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
+  mutation AddUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
       token
       user {
         _id
         username
+        email
       }
     }
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+// add new game
+export const ADD_GAME = gql`
+  mutation AddGame($title: String!, $description: String!, $scenes: [SceneInput]) {
+    addGame(title: $title, description: $description, scenes: $scenes) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
+      title
+      description
+      scenes {
+        sceneId
+        description
+        actions {
+          actionText
+          nextSceneId
+        }
       }
     }
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+// update game
+export const UPDATE_GAME = gql`
+  mutation UpdateGame($id: ID!, $title: String, $description: String, $scenes: [SceneInput]) {
+    updateGame(id: $id, title: $title, description: $description, scenes: $scenes) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
+      title
+      description
+      scenes {
+        sceneId
+        description
+        actions {
+          actionText
+          nextSceneId
+        }
       }
+    }
+  }
+`;
+
+// add new character
+export const ADD_CHARACTER = gql`
+  mutation AddCharacter($name: String!, $health: Int!, $inventory: [String]) {
+    addCharacter(name: $name, health: $health, inventory: $inventory) {
+      _id
+      name
+      health
+      inventory
+    }
+  }
+`;
+
+// Mutation to update an existing character
+export const UPDATE_CHARACTER = gql`
+  mutation UpdateCharacter($id: ID!, $name: String, $health: Int, $inventory: [String]) {
+    updateCharacter(id: $id, name: $name, health: $health, inventory: $inventory) {
+      _id
+      name
+      health
+      inventory
     }
   }
 `;
