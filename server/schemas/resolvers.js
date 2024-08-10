@@ -98,8 +98,8 @@ const resolvers = {
       }
     },
 
-    // create a new user
-    async createUser(_, { username, email, password }) {
+    // add a new user
+    async addUser(_, { username, email, password }) {
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
         const user = new User({
@@ -110,36 +110,7 @@ const resolvers = {
         const result = await user.save();
         return { ...result._doc, password: null };
       } catch (error) {
-        throw new Error('Error creating user');
-      }
-    },
-
-    async createGame(_, { title, description, scenes }) {
-      try {
-        const game = new Game({
-          title,
-          description,
-          scenes
-        });
-        return await game.save();
-      } catch (error) {
-        throw new Error('Error creating game');
-      }
-    },
-  
-    async updateGame(_, { id, title, description, scenes }) {
-      try {
-        return await Game.findByIdAndUpdate(id, { title, description, scenes }, { new: true });
-      } catch (error) {
-        throw new Error('Error updating game');
-      }
-    },
-
-    async deleteGame(_, { id }) {
-      try {
-        return await Game.findByIdAndRemove(id);
-      } catch (error) {
-        throw new Error('Error deleting game');
+        throw new Error('Error adding user');
       }
     },
 
