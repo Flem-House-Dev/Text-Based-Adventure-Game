@@ -1,59 +1,85 @@
 [
   {
-    "title": "Title",
-    "description": "description",
+    "title": "The Great Adventure",
+    "description": "An epic journey through an unknown land.",
     "scenes": [
       {
         "sceneId": "start",
-        "description": "description",
+        "description": "go left or right",
         "actions": [
-          { "actionText": "action", "nextSceneId": "next" },
-          { "actionText": "Leave", "nextSceneId": "end" }
+          { "actionText": "go left", "nextSceneId": "path1" },
+          { "actionText": "go right", "nextSceneId": "path2" }
         ]
       },
       {
-        "sceneId": "next",
-        "description": "description",
+        "sceneId": "path1",
+        "description": "go up or down",
         "actions": [
-          { "actionText": "action", "nextSceneId": "next" },
-          { "actionText": "Leave", "nextSceneId": "end" }
+          { "actionText": "up", "nextSceneId": "up" },
+          { "actionText": "down", "nextSceneId": "down" }
         ]
       },
       {
-        "sceneId": "next",
-        "description": "description",
+        "sceneId": "path2",
+        "description": "go in cave or volcano",
         "actions": [
-          { "actionText": "action", "nextSceneId": "next" },
-          { "actionText": "Leave", "nextSceneId": "end" }
+          { "actionText": "cave", "nextSceneId": "cave" },
+          { "actionText": "volcano", "nextSceneId": "volcano" }
         ]
       },
       {
-        "sceneId": "next",
-        "description": "description",
+        "sceneId": "up",
+        "description": "here or there",
         "actions": [
-          { "actionText": "action", "nextSceneId": "next" },
-          { "actionText": "Leave", "nextSceneId": "end" }
+          { "actionText": "here", "nextSceneId": "river" },
+          { "actionText": "there", "nextSceneId": "die" }
         ]
       },
       {
-        "sceneId": "next",
-        "description": "description",
+        "sceneId": "down",
+        "description": "ocean or desert",
         "actions": [
-          { "actionText": "action", "nextSceneId": "next" },
-          { "actionText": "Leave", "nextSceneId": "end" }
+          { "actionText": "ocean", "nextSceneId": "survive" },
+          { "actionText": "desert", "nextSceneId": "die" }
         ]
       },
       {
-        "sceneId": "next",
-        "description": "description",
+        "sceneId": "cave",
+        "description": "dance or jump",
         "actions": [
-          { "actionText": "action", "nextSceneId": "next" },
-          { "actionText": "Leave", "nextSceneId": "end" }
+          { "actionText": "dance", "nextSceneId": "treasure" },
+          { "actionText": "jump", "nextSceneId": "die" }
         ]
       },
       {
-        "sceneId": "end",
-        "description": "The adventure ends here. Thank you for playing!",
+        "sceneId": "volcano",
+        "description": "explore or leave",
+        "actions": [
+          { "actionText": "explore", "nextSceneId": "die" },
+          { "actionText": "leave", "nextSceneId": "survive" }
+        ]
+      },
+      {
+        "sceneId": "river",
+        "description": "cross bridge or swim",
+        "actions": [
+          { "actionText": "bridge", "nextSceneId": "treasure" },
+          { "actionText": "swim", "nextSceneId": "die" }
+        ]
+      },
+      {
+        "sceneId": "die",
+        "description": "you died!",
+        "actions": []
+      },
+      {
+        "sceneId": "treasure",
+        "description": "you found treasure!",
+        "actions": []
+      },
+      {
+        "sceneId": "survive",
+        "description": "you survived!",
         "actions": []
       }
     ]

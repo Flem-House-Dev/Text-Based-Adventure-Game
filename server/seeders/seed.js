@@ -3,6 +3,7 @@ const { User, Game } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const gameSeeds = require('./gameSeeds.json');
 const cleanDB = require('./cleanDB');
+const bcrypt = require('bcrypt');
 
 db.once('open', async () => {
   try {
@@ -11,19 +12,20 @@ db.once('open', async () => {
     await cleanDB('User', 'users');
 
     // seed user data
-    await User.create(userSeeds);
+    const usersWithHashedPasswords = await Promise.all(userSeeds.map(async (user) => {
+      const hashedPassword = await bcrypt.hash(user.password, 12);
+      return { ...user, password: hashedPassword };
+    }));
+    await User.create(usersWithHashedPasswords);
 
     // seed game data
-    for (let i = 0; i < gameSeeds.length; i++) {
-      const game = gameSeeds[i];
-      const createdGame = await Game.create(game);
-    }
+    await Game.create(gameSeeds);
     
   } catch (err) {
     console.error(err);
     process.exit(1);
   }
 
-  console.log('all done!');
+  console.log('All done!');
   process.exit(0);
 });
