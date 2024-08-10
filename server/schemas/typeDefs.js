@@ -29,23 +29,22 @@ const typeDefs = `
     scenes: [Scene!]!
   }
 
-  type UserGameProgress {
+  type UserProgress {
     _id: ID!
     userId: ID!
-    gameId: ID!
     currentSceneId: String!
   }
 
   type Query {
     user(id: ID!): User
-    game(id: ID!): Game
-    progress(userId: ID!, gameId: ID!): UserGameProgress
+    game: Game
+    progress(userId: ID!): UserProgress
   }
 
   type Mutation {
     login(email: String!, password: String!): AuthPayload
-    createUser(username: String!, email: String!, password: String!): User
-    updateProgress(userId: ID!, gameId: ID!, currentSceneId: String!): UserGameProgress
+    addUser(username: String!, email: String!, password: String!): User
+    updateProgress(userId: ID!, currentSceneId: String!): UserProgress
   }
 
   input ActionInput {
@@ -57,6 +56,11 @@ const typeDefs = `
     sceneId: String!
     description: String!
     actions: [ActionInput!]!
+  }
+
+  type AuthPayload {
+  token: String!
+  user: User!
   }
 `;
 

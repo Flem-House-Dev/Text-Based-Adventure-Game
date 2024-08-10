@@ -26,11 +26,10 @@ export const ADD_USER = gql`
 
 // Update user progress
 export const UPDATE_PROGRESS = gql`
-  mutation UpdateProgress($userId: ID!, $gameId: ID!, $currentSceneId: String!) {
-    updateProgress(userId: $userId, gameId: $gameId, currentSceneId: $currentSceneId) {
+  mutation UpdateProgress($userId: ID!, $currentSceneId: String!) {
+    updateProgress(userId: $userId, currentSceneId: $currentSceneId) {
       _id
       userId
-      gameId
       currentSceneId
     }
   }

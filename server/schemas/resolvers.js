@@ -34,17 +34,17 @@ const resolvers = {
       }
     },
 
-    async game(_, { id }) {
+    async game() {
       try {
-        return await Game.findById(id);
+        return await Game.findOne(); 
       } catch (error) {
         throw new Error('Error fetching game');
       }
     },
 
-    async progress(_, { userId, gameId }) {
+    async progress(_, { userId }) {
       try {
-        return await UserProgress.findOne({ userId, gameId });
+        return await UserProgress.findOne({ userId });
       } catch (error) {
         throw new Error('Error fetching user progress');
       }
@@ -114,10 +114,10 @@ const resolvers = {
       }
     },
 
-    async updateProgress(_, { userId, gameId, currentSceneId }) {
+    async updateProgress(_, { userId, currentSceneId }) {
       try {
-        const progress = await UserGameProgress.findOneAndUpdate(
-          { userId, gameId },
+        const progress = await UserProgress.findOneAndUpdate(
+          { userId },
           { currentSceneId },
           { new: true, upsert: true }
         );
