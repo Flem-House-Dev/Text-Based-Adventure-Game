@@ -24,12 +24,12 @@ const resolvers = {
     //   }
     // },
 
-    // Fetch all users
-    async users() {
+    // Fetch single users
+    async user(_, { id }) {
       try {
-        return await User.find();
+        return await User.findById(id);
       } catch (error) {
-        throw new Error('Error fetching users');
+        throw new Error('Error fetching user');
       }
     },
 
@@ -85,6 +85,19 @@ const resolvers = {
         throw new Error('Error creating user');
       }
     },
+
+    async createGame(_, { title, description, scenes }) {
+      try {
+        const game = new Game({
+          title,
+          description,
+          scenes
+        });
+        return await game.save();
+      } catch (error) {
+        throw new Error('Error creating game');
+      }
+    }
   }
   }
 };
