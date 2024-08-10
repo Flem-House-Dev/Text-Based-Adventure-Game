@@ -27,6 +27,19 @@ export const ADD_USER = gql`
   }
 `;
 
+
+// Update user progress
+export const UPDATE_PROGRESS = gql`
+  mutation UpdateProgress($userId: ID!, $gameId: ID!, $currentSceneId: String!) {
+    updateProgress(userId: $userId, gameId: $gameId, currentSceneId: $currentSceneId) {
+      _id
+      userId
+      gameId
+      currentSceneId
+    }
+  }
+`;
+
 // add new game
 export const ADD_GAME = gql`
   mutation AddGame($title: String!, $description: String!, $scenes: [SceneInput]) {

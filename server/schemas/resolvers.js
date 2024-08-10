@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Game = require('../models/Game');
+const UserProgress = require('../models/UserProgress');
 const Character = require('../models/Character'); 
 
 const resolvers = {
@@ -38,6 +39,14 @@ const resolvers = {
         return await Game.findById(id);
       } catch (error) {
         throw new Error('Error fetching game');
+      }
+    },
+
+    async progress(_, { userId, gameId }) {
+      try {
+        return await UserProgress.findOne({ userId, gameId });
+      } catch (error) {
+        throw new Error('Error fetching user progress');
       }
     }
   },
@@ -131,6 +140,19 @@ const resolvers = {
         return await Game.findByIdAndRemove(id);
       } catch (error) {
         throw new Error('Error deleting game');
+      }
+    },
+
+    async updateProgress(_, { userId, gameId, currentSceneId }) {
+      try {
+        const progress = await UserGameProgress.findOneAndUpdate(
+          { userId, gameId },
+          { currentSceneId },
+          { new: true, upsert: true }
+        );
+        return progress;
+      } catch (error) {
+        throw new Error('Error updating progress');
       }
     }
   }

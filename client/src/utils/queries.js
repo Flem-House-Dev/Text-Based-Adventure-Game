@@ -22,6 +22,18 @@ export const GET_ME = gql`
   }
 `;
 
+// fetch user progress
+export const GET_PROGRESS = gql`
+  query GetProgress($userId: ID!, $gameId: ID!) {
+    progress(userId: $userId, gameId: $gameId) {
+      _id
+      userId
+      gameId
+      currentSceneId
+    }
+  }
+`;
+
 // fetch a game by ID
 export const GET_GAME = gql`
   query GetGame($id: ID!) {
