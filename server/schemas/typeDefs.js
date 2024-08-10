@@ -58,6 +58,11 @@ const typeDefs = `
     description: String!
     actions: [ActionInput!]!
   }
+
+  type AuthPayload {
+  token: String!
+  user: User!
+  }
 `;
 
 module.exports = typeDefs;
