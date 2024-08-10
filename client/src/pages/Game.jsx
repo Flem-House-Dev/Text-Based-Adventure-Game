@@ -1,86 +1,75 @@
-import React, { useState, useEffect } from 'react';
-import { useQuery, useMutation, gql } from '@apollo/client';
+// src/components/Games.jsx
+import React, { useState } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_GAMES, GET_GAME } from '../utils/queries';
+import { ADD_GAME, UPDATE_GAME } from '../utils/mutations';
 
-const GET_GAME = gql`
-  query GetGame($id: ID!) {
-    game(id: $id) {
-      _id
-      title
-      description
-      scenes {
-        sceneId
-        description
-        actions {
-          actionText
-          nextSceneId
-        }
-      }
+const Games = () => {
+  const { loading, error, data } = useQuery(GET_GAMES);
+  const [addGame] = useMutation(ADD_GAME);
+  const [updateGame] = useMutation(UPDATE_GAME);
+  const [selectedGame, setSelectedGame] = useState(null);
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const handleAddGame = async () => {
+    try {
+      await addGame({ variables: { title, content } });
+      setTitle('');
+      setContent('');
+    } catch (err) {
+      console.error('Error adding game:', err);
     }
-  }
-`;
-
-const GET_USER_PROGRESS = gql`
-  query GetUserProgress($userId: ID!, $gameId: ID!) {
-    userProgress(userId: $userId, gameId: $gameId) {
-      currentSceneId
-    }
-  }
-`;
-
-const UPDATE_USER_PROGRESS = gql`
-  mutation UpdateUserProgress($userId: ID!, $gameId: ID!, $currentSceneId: String!) {
-    updateUserProgress(userId: $userId, gameId: $gameId, currentSceneId: $currentSceneId) {
-      currentSceneId
-    }
-  }
-`;
-
-const Game = ({ match }) => {
-  const [currentScene, setCurrentScene] = useState(null);
-  const userId = localStorage.getItem('userId'); 
-  const gameId = match.params.id;
-
-  const { loading, error, data } = useQuery(GET_GAME, {
-    variables: { id: gameId },
-  });
-
-  const { loading: progressLoading, error: progressError, data: progressData } = useQuery(GET_USER_PROGRESS, {
-    variables: { userId, gameId },
-  });
-
-  const [updateUserProgress] = useMutation(UPDATE_USER_PROGRESS);
-
-  useEffect(() => {
-    if (data && progressData) {
-      const game = data.game;
-      const userProgress = progressData.userProgress;
-      const initialScene = userProgress ? game.scenes.find(scene => scene.sceneId === userProgress.currentSceneId) : game.scenes[0];
-      setCurrentScene(initialScene);
-    }
-  }, [data, progressData]);
-
-  const handleAction = async (nextSceneId) => {
-    const nextScene = data.game.scenes.find(scene => scene.sceneId === nextSceneId);
-    setCurrentScene(nextScene);
-    await updateUserProgress({ variables: { userId, gameId, currentSceneId: nextSceneId } });
   };
 
-  if (loading || progressLoading) return <p>Loading...</p>;
-  if (error || progressError) return <p>Error :(</p>;
+  const handleUpdateGame = async (id) => {
+    try {
+      await updateGame({ variables: { id, title, content } });
+      setTitle('');
+      setContent('');
+      setSelectedGame(null);
+    } catch (err) {
+      console.error('Error updating game:', err);
+    }
+  };
 
   return (
     <div>
-      <h1>{data.game.title}</h1>
-      <p>{currentScene.description}</p>
+      <h1>Games</h1>
       <ul>
-        {currentScene.actions.map((action, index) => (
-          <li key={index} onClick={() => handleAction(action.nextSceneId)}>
-            {action.actionText}
+        {data.games.map((game) => (
+          <li key={game.id}>
+            <h2>{game.title}</h2>
+            <p>{game.content}</p>
+            <button onClick={() => setSelectedGame(game)}>Edit</button>
           </li>
         ))}
       </ul>
+
+      <h2>{selectedGame ? 'Edit Game' : 'Add New Game'}</h2>
+      <input
+        type="text"
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <textarea
+        placeholder="Content"
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
+      <button
+        onClick={() =>
+          selectedGame ? handleUpdateGame(selectedGame.id) : handleAddGame()
+        }
+      >
+        {selectedGame ? 'Update Game' : 'Add Game'}
+      </button>
     </div>
   );
 };
 
-export default Game;
+export default Games;

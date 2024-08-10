@@ -1,60 +1,87 @@
 import { gql } from '@apollo/client';
 
+// fetch user details based on username
 export const QUERY_USER = gql`
-  query user($username: String!) {
+  query User($username: String!) {
     user(username: $username) {
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+
+// fetch all characters
+export const QUERY_CHARACTERS = gql`
+  query GetCharacters {
+    characters {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      name
+      health
+      inventory
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+// fetch a single character by ID
+export const QUERY_CHARACTER = gql`
+  query GetCharacter($id: ID!) {
+    character(id: $id) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+      name
+      health
+      inventory
     }
   }
 `;
 
+// fetch the current user (assuming you have a session-based query)
 export const QUERY_ME = gql`
-  query me {
+  query Me {
     me {
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        thoughtAuthor
-        createdAt
+    }
+  }
+`;
+
+// fetch all games
+export const QUERY_GAMES = gql`
+  query GetGames {
+    games {
+      _id
+      title
+      description
+      scenes {
+        sceneId
+        description
+        actions {
+          actionText
+          nextSceneId
+        }
       }
     }
   }
 `;
+
+// fetch a single game by ID
+export const QUERY_GAME = gql`
+  query GetGame($id: ID!) {
+    game(id: $id) {
+      _id
+      title
+      description
+      scenes {
+        sceneId
+        description
+        actions {
+          actionText
+          nextSceneId
+        }
+      }
+    }
+  }
+`;
+
