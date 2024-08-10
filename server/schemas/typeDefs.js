@@ -38,7 +38,7 @@ const typeDefs = `
   type Query {
     user(id: ID!): User
     game: Game
-    progress(userId: ID!, gameId: ID!): UserProgress
+    progress(userId: ID!): UserProgress
   }
 
   type Mutation {

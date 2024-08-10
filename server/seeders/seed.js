@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { User, Game } = require('../models');
+const { User, Game } = require('../models/index');
 const userSeeds = require('./userSeeds.json');
 const gameSeeds = require('./gameSeeds.json');
 const cleanDB = require('./cleanDB');

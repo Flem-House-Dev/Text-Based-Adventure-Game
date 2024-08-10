@@ -33,7 +33,7 @@ export const GET_PROGRESS = gql`
   }
 `;
 
-// fetch gamr
+// fetch game
 export const GET_GAME = gql`
   query GetGame {
     game {
