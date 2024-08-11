@@ -10,6 +10,7 @@ body {
 :root {
     --blu: #2a2350;
     --pur: #4c25b8;
+    --semi-transparent-white: #ffffff50; /* Semi-transparent white color */
 }
   
 /* Header Styles */
@@ -73,4 +74,74 @@ body {
 .start-game-button:hover {
     background-color: #9ec6f0; 
     color: var(--pur);
+}
+
+/* Form Styles (Login and Signup) */
+form {
+    background-color: #1e1e2e; /* Dark background for contrast */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    max-width: 500px;
+    margin: 20px auto; /* Center the form */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #4c25b8; /* Match the theme colors */
+    border-radius: 5px;
+    background-color: #2a2350; /* Background color for input */
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #c1bed3d5; /* Placeholder color */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #4c25b8; /* Primary theme color */
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #9ec6f0; /* Lighter color on hover */
+}
+
+.error-message {
+    color: #ff4c4c;
+    background-color: #ffdddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Card and Card-Body Styles */
+.card {
+    background-color: var(--semi-transparent-white); /* Semi-transparent white background for the card */
+    border: none; /* Remove any border that might interfere */
+    border-radius: 10px; /* Smooth edges */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+.card-body {
+    background-color: var(--semi-transparent-white); /* Semi-transparent white background for the card body */
+    color: #2a2350; /* Ensure text color is dark enough for contrast */
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    border-radius: 10px; /* Add rounded corners for a softer look */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
 }
