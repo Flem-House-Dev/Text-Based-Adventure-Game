@@ -1,14 +1,15 @@
 const typeDefs = `
- type User {
+  type User {
     _id: ID!
     username: String!
     email: String!
   }
 
+  # Uncomment and use Character type if needed in the future
   # type Character {
   #   _id: ID!
- #    name: String!
-  #   health: Number!
+  #   name: String!
+  #   health: Int!
   # }
 
   type Action {
@@ -47,6 +48,11 @@ const typeDefs = `
     updateProgress(userId: ID!, currentSceneId: String!): UserProgress
   }
 
+  type AuthPayload {
+    token: String!
+    user: User!
+  }
+
   input ActionInput {
     actionText: String!
     nextSceneId: String!
@@ -56,11 +62,6 @@ const typeDefs = `
     sceneId: String!
     description: String!
     actions: [ActionInput!]!
-  }
-
-  type AuthPayload {
-  token: String!
-  user: User!
   }
 `;
 

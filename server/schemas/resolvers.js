@@ -3,29 +3,11 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Game = require('../models/Game');
 const UserProgress = require('../models/UserProgress');
-const Character = require('../models/Character'); 
+const Character = require('../models/Character');
 
 const resolvers = {
   Query: {
-    // // Fetch all characters
-    // async getCharacters() {
-    //   try {
-    //     return await Character.find();
-    //   } catch (error) {
-    //     throw new Error('Error fetching characters');
-    //   }
-    // },
-
-    // // Fetch a single character by ID
-    // async getCharacter(_, { id }) {
-    //   try {
-    //     return await Character.findById(id);
-    //   } catch (error) {
-    //     throw new Error('Error fetching character');
-    //   }
-    // },
-
-    // Fetch single users
+    // Fetch single user by ID
     async user(_, { id }) {
       try {
         return await User.findById(id);
@@ -34,6 +16,7 @@ const resolvers = {
       }
     },
 
+    // Fetch game
     async game() {
       try {
         return await Game.findOne(); 
@@ -42,6 +25,7 @@ const resolvers = {
       }
     },
 
+    // Fetch user progress
     async progress(_, { userId }) {
       try {
         return await UserProgress.findOne({ userId });
@@ -52,35 +36,7 @@ const resolvers = {
   },
 
   Mutation: {
-    // // Create a new character
-    // async createCharacter(_, { input }) {
-    //   try {
-    //     const character = new Character(input);
-    //     return await character.save();
-    //   } catch (error) {
-    //     throw new Error('Error creating character');
-    //   }
-    // },
-
-    // // Update an existing character by ID
-    // async updateCharacter(_, { id, input }) {
-    //   try {
-    //     return await Character.findByIdAndUpdate(id, input, { new: true });
-    //   } catch (error) {
-    //     throw new Error('Error updating character');
-    //   }
-    // },
-
-    // // Delete a character by ID
-    // async deleteCharacter(_, { id }) {
-    //   try {
-    //     return await Character.findByIdAndRemove(id);
-    //   } catch (error) {
-    //     throw new Error('Error deleting character');
-    //   }
-    // },
-
-    // login a user
+    // User login
     async login(_, { email, password }) {
       try {
         const user = await User.findOne({ email });
@@ -91,14 +47,14 @@ const resolvers = {
         if (!valid) {
           throw new Error('Invalid password');
         }
-        const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         return { token, user };
       } catch (error) {
         throw new Error('Error logging in');
       }
     },
 
-    // add a new user
+    // Add a new user
     async addUser(_, { username, email, password }) {
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
@@ -108,12 +64,13 @@ const resolvers = {
           password: hashedPassword
         });
         const result = await user.save();
-        return { ...result._doc, password: null };
+        return { ...result._doc, password: null }; // Don't return the password
       } catch (error) {
         throw new Error('Error adding user');
       }
     },
 
+    // Update user progress
     async updateProgress(_, { userId, currentSceneId }) {
       try {
         const progress = await UserProgress.findOneAndUpdate(
