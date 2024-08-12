@@ -5,14 +5,16 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(to bottom, #2a2350, #1e1e2e); /* Subtle gradient background */
 }
 
 :root {
     --blu: #2a2350;
     --pur: #4c25b8;
     --semi-transparent-white: #ffffff50; /* Semi-transparent white color */
+    --button-hover: #9ec6f0;
 }
-  
+
 /* Header Styles */
 .header {
     color: #eff1ef;
@@ -21,14 +23,14 @@ body {
     animation: flicker 2s infinite; 
     margin: 0 50px 20px 50px;
 }
-  
+
 /* Navbar Styles */
 .nav {
     background: linear-gradient(to right, #f7f2f17a, #ffffff50); 
     padding: 15px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); 
 }
-  
+
 .nav-link {
     color: var(--pur); 
     font-size: 1.5rem;
@@ -40,7 +42,7 @@ body {
     text-shadow: 0 0 20px #c1bed3d5;
     margin: 0 50px 0 80px;
 }
-  
+
 .nav-link:hover {
     background-color: var(--pur); 
     color: var(--blu); 
@@ -58,22 +60,40 @@ body {
 /* Dashboard */
 .dashboard {
     padding: 0 100px 0 100px;
+    text-align: center; /* Center align text for a cleaner layout */
+}
+
+.dashboard h1 {
+    font-size: 2.5rem; /* Larger font size for the main heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.dashboard h2 {
+    font-size: 1.8rem; /* Larger font size for the subheading */
+    margin-bottom: 15px;
+}
+
+.dashboard p {
+    font-size: 1.2rem; /* Slightly larger paragraph text for readability */
+    margin-bottom: 30px; /* Add space between paragraphs */
 }
 
 .start-game-button {
     background-color: var(--pur); 
     color: white; 
     border: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
+    padding: 15px 30px; /* Larger button padding */
+    font-size: 1.2rem; /* Larger button text */
+    border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
 }
-  
+
 .start-game-button:hover {
-    background-color: #9ec6f0; 
+    background-color: var(--button-hover); 
     color: var(--pur);
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 /* Form Styles (Login and Signup) */
