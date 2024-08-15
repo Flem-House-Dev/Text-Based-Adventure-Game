@@ -64,11 +64,11 @@ const resolvers = {
     // Add a new user
     async addUser(_, { username, email, password }) {
       try {
-        const hashedPassword = await bcrypt.hash(password, 10);
+        // const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({
           username,
           email,
-          password: hashedPassword
+          password
         });
         const result = await user.save();
         return { ...result._doc, password: null }; // Don't return the password
