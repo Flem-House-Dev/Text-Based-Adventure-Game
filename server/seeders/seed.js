@@ -12,10 +12,6 @@ db.once('open', async () => {
     await cleanDB('User', 'users');
 
     // seed user data
-    // const usersWithHashedPasswords = await Promise.all(userSeeds.map(async (user) => {
-    //   const hashedPassword = await bcrypt.hash(user.password, 10);
-    //   return { ...user, password: hashedPassword };
-    // }));
     await User.create(userSeeds);
 
     // seed game data

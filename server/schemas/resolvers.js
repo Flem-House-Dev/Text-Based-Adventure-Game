@@ -40,7 +40,6 @@ const resolvers = {
   Mutation: {
     // User login
     async login(_, { email, password }) {
-      // try {
         const user = await User.findOne({ email });
         if (!user) {
           throw new Error('User not found');
@@ -56,22 +55,18 @@ const resolvers = {
         }
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         return { token, user };
-      // } catch (error) {
-      //   throw new Error('Error logging in');
-      // }
     },
 
     // Add a new user
     async addUser(_, { username, email, password }) {
       try {
-        // const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({
           username,
           email,
           password
         });
         const result = await user.save();
-        return { ...result._doc, password: null }; // Don't return the password
+        return { ...result._doc, password: null }; 
       } catch (error) {
         throw new Error('Error adding user');
       }
