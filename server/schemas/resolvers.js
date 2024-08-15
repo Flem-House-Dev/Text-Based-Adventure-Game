@@ -5,6 +5,8 @@ const Game = require('../models/Game');
 const UserProgress = require('../models/UserProgress');
 const Character = require('../models/Character');
 
+require('dotenv').config();
+
 const resolvers = {
   Query: {
     // Fetch single user by ID
@@ -38,26 +40,31 @@ const resolvers = {
   Mutation: {
     // User login
     async login(_, { email, password }) {
-      try {
+      // try {
         const user = await User.findOne({ email });
         if (!user) {
           throw new Error('User not found');
         }
+
+        console.log(password);
+        console.log(user);
+        
+
         const valid = await bcrypt.compare(password, user.password);
         if (!valid) {
           throw new Error('Invalid password');
         }
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         return { token, user };
-      } catch (error) {
-        throw new Error('Error logging in');
-      }
+      // } catch (error) {
+      //   throw new Error('Error logging in');
+      // }
     },
 
     // Add a new user
     async addUser(_, { username, email, password }) {
       try {
-        const hashedPassword = await bcrypt.hash(password, 12);
+        const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({
           username,
           email,
