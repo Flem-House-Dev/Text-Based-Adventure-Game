@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Game = require('../models/Game');
 const UserProgress = require('../models/UserProgress');
-const Character = require('../models/Character');
+
 
 require('dotenv').config();
 
