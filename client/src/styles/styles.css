@@ -5,13 +5,13 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to bottom, #2a2350, #1e1e2e); /* Subtle gradient background */
+    background-image: linear-gradient(to bottom, #2a2350, #1e1e2e); 
 }
 
 :root {
     --blu: #2a2350;
     --pur: #4c25b8;
-    --semi-transparent-white: #ffffff50; /* Semi-transparent white color */
+    --semi-transparent-white: #ffffff50; 
     --button-hover: #9ec6f0;
 }
 
@@ -60,50 +60,50 @@ body {
 /* Dashboard */
 .dashboard {
     padding: 0 100px 0 100px;
-    text-align: center; /* Center align text for a cleaner layout */
+    text-align: center; 
 }
 
 .dashboard h1 {
-    font-size: 2.5rem; /* Larger font size for the main heading */
-    margin-bottom: 20px; /* Add some space below the heading */
+    font-size: 2.5rem; 
+    margin-bottom: 20px; 
 }
 
 .dashboard h2 {
-    font-size: 1.8rem; /* Larger font size for the subheading */
+    font-size: 1.8rem; 
     margin-bottom: 15px;
 }
 
 .dashboard p {
-    font-size: 1.2rem; /* Slightly larger paragraph text for readability */
-    margin-bottom: 30px; /* Add space between paragraphs */
+    font-size: 1.2rem; 
+    margin-bottom: 30px; 
 }
 
 .start-game-button {
     background-color: var(--pur); 
     color: white; 
     border: none;
-    padding: 15px 30px; /* Larger button padding */
-    font-size: 1.2rem; /* Larger button text */
+    padding: 15px 30px; 
+    font-size: 1.2rem; 
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .start-game-button:hover {
     background-color: var(--button-hover); 
     color: var(--pur);
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: scale(1.05); 
 }
 
 /* Form Styles (Login and Signup) */
 form {
-    background-color: #1e1e2e; /* Dark background for contrast */
+    background-color: #1e1e2e; 
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); 
     max-width: 500px;
-    margin: 20px auto; /* Center the form */
+    margin: 20px auto;
 }
 
 input[type="text"],
@@ -112,9 +112,9 @@ input[type="password"] {
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
-    border: 2px solid #4c25b8; /* Match the theme colors */
+    border: 2px solid #4c25b8;
     border-radius: 5px;
-    background-color: #2a2350; /* Background color for input */
+    background-color: #2a2350; 
     color: #ffffff;
     font-size: 1rem;
 }
@@ -122,13 +122,13 @@ input[type="password"] {
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 input[type="password"]::placeholder {
-    color: #c1bed3d5; /* Placeholder color */
+    color: #c1bed3d5;
 }
 
 button[type="submit"] {
     width: 100%;
     padding: 15px;
-    background-color: #4c25b8; /* Primary theme color */
+    background-color: #4c25b8;
     color: white;
     font-size: 1.2rem;
     border: none;
@@ -138,7 +138,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #9ec6f0; /* Lighter color on hover */
+    background-color: #9ec6f0; 
 }
 
 .error-message {
@@ -152,16 +152,16 @@ button[type="submit"]:hover {
 
 /* Card and Card-Body Styles */
 .card {
-    background-color: var(--semi-transparent-white); /* Semi-transparent white background for the card */
-    border: none; /* Remove any border that might interfere */
-    border-radius: 10px; /* Smooth edges */
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    background-color: var(--semi-transparent-white); 
+    border: none;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); 
 }
 
 .card-body {
-    background-color: var(--semi-transparent-white); /* Semi-transparent white background for the card body */
-    color: #2a2350; /* Ensure text color is dark enough for contrast */
+    background-color: var(--semi-transparent-white); 
+    color: #2a2350;
     padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
-    border-radius: 10px; /* Add rounded corners for a softer look */
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); 
 }

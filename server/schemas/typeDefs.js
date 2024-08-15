@@ -5,13 +5,6 @@ const typeDefs = `
     email: String!
   }
 
-  # Uncomment and use Character type if needed in the future
-  # type Character {
-  #   _id: ID!
-  #   name: String!
-  #   health: Int!
-  # }
-
   type Action {
     actionText: String!
     nextSceneId: String!
@@ -51,17 +44,6 @@ const typeDefs = `
   type AuthPayload {
     token: String!
     user: User!
-  }
-
-  input ActionInput {
-    actionText: String!
-    nextSceneId: String!
-  }
-
-  input SceneInput {
-    sceneId: String!
-    description: String!
-    actions: [ActionInput!]!
   }
 `;
 
