@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Game = require('../models/Game');
 const UserProgress = require('../models/UserProgress');
+const signToken = require('../utils/auth');
 
 
 require('dotenv').config();
@@ -21,7 +22,7 @@ const resolvers = {
     // Fetch game
     async game() {
       try {
-        return await Game.findOne(); 
+        return await Game.findOne();
       } catch (error) {
         throw new Error('Error fetching game');
       }
@@ -40,21 +41,18 @@ const resolvers = {
   Mutation: {
     // User login
     async login(_, { email, password }) {
-        const user = await User.findOne({ email });
-        if (!user) {
-          throw new Error('User not found');
-        }
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new Error('User not found');
+      }
 
-        console.log(password);
-        console.log(user);
-        
+      const valid = await bcrypt.compare(password, user.password);
+      if (!valid) {
+        throw new Error('Invalid password');
+      }
 
-        const valid = await bcrypt.compare(password, user.password);
-        if (!valid) {
-          throw new Error('Invalid password');
-        }
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        return { token, user };
+      const token = signToken(user);
+      return { token, user };
     },
 
     // Add a new user
@@ -66,7 +64,7 @@ const resolvers = {
           password
         });
         const result = await user.save();
-        return { ...result._doc, password: null }; 
+        return { ...result._doc, password: null };
       } catch (error) {
         throw new Error('Error adding user');
       }
