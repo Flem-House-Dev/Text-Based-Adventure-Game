@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const sceneSchema = new mongoose.Schema({
   sceneId: { type: String, required: true },
   description: { type: String, required: true },
+  image: { type: String },
   actions: [{
     actionText: { type: String, required: true },
     nextSceneId: { type: String, required: true }

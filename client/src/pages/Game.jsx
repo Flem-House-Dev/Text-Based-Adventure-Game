@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { GET_GAME } from '../utils/queries';
 
 const Game = () => {
-  // Retrieve game data, update progress mutation, and set scenes
+  // Retrieve game data
   const { loading, error, data } = useQuery(GET_GAME);
   const [currentSceneId, setCurrentSceneId] = useState(null);
 
@@ -18,7 +18,6 @@ const Game = () => {
   const handleAction = async (nextSceneId) => {
     // Set the current scene as the next scene
     setCurrentSceneId(nextSceneId);
- 
   };
 
   if (loading) return <p>Loading...</p>;
@@ -34,20 +33,25 @@ const Game = () => {
       {/* Safety check */}
       <h1 className="game-title">{data.game ? data.game.title : 'No Game Data'}</h1>
       {currentScene ? (
-        <>
-          <p className="game-description">{currentScene.description}</p>
-          <div className="choices-container">
-            {currentScene.actions.map(action => (
-              <button
-                key={action.nextSceneId}
-                className="choice-button"
-                onClick={() => handleAction(action.nextSceneId)}
-              >
-                {action.actionText}
-              </button>
-            ))}
+        <div 
+          className="scene-background"
+          style={{ backgroundImage: `url(${currentScene.image})` }}
+        >
+          <div className="scene-content" style={{ backgroundImage: `url(${currentScene.image})` }}>
+            <p className="game-description">{currentScene.description}</p>
+            <div className="choices-container">
+              {currentScene.actions.map(action => (
+                <button
+                  key={action.nextSceneId}
+                  className="choice-button"
+                  onClick={() => handleAction(action.nextSceneId)}
+                >
+                  {action.actionText}
+                </button>
+              ))}
+            </div>
           </div>
-        </>
+        </div>
       ) : (
         // Safety check
         <p className="game-description">No scene data available</p>

@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: linear-gradient(to bottom, #2a2350, #1e1e2e); 
+    height: 100%;
 }
 
 :root {
@@ -166,10 +167,31 @@ button[type="submit"]:hover {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); 
 }
 
-/* Game Container Styles */
+
+/* game styles */
 .game-container {
-    text-align: center; /* Center all text and buttons */
-    padding: 20px; /* Add some padding to the container */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    width: 100%;
+}
+
+.scene-background {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.scene-content {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    padding-bottom: 200px;
 }
 
 .game-title {
@@ -186,6 +208,7 @@ button[type="submit"]:hover {
     display: inline-block; /* Keep the buttons inline */
     margin: 20px 0; /* Add space above and below the buttons */
 }
+
 
 /* Choice Button Styles */
 .choice-button {
