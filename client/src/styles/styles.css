@@ -197,7 +197,7 @@ button[type="submit"]:hover {
     text-decoration: none;
     display: inline-block; 
     font-size: 26px; 
-    margin: 4px 2px; 
+    margin: 4px 12px; 
     cursor: pointer; 
     border-radius: 12px; 
     transition: background-color 0.3s, transform 0.3s, background 0.3s; 
