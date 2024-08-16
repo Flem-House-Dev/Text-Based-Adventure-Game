@@ -166,25 +166,44 @@ button[type="submit"]:hover {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); 
 }
 
+/* Game Container Styles */
+.game-container {
+    text-align: center; /* Center all text and buttons */
+    padding: 20px; /* Add some padding to the container */
+}
+
+.game-title {
+    font-size: 3rem; /* Increase the title font size */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+.game-description {
+    font-size: 1.5rem; /* Increase the description font size */
+    margin-bottom: 30px; /* Add more space below the description */
+}
+
+.choices-container {
+    display: inline-block; /* Keep the buttons inline */
+    margin: 20px 0; /* Add space above and below the buttons */
+}
+
+/* Choice Button Styles */
 .choice-button {
-    background: linear-gradient(to right, #5900ff, #9900ff ); 
-    border: solid #f5ebe7; 
+    background: linear-gradient(to right, #5900ff, #9900ff); /* Gradient from purple shades */
+    border: solid #f5ebe7; /* Border color */
     color: white; 
     padding: 15px 32px; 
     text-align: center; 
     text-decoration: none;
     display: inline-block; 
-    font-size: 16px; 
+    font-size: 26px; 
     margin: 4px 2px; 
     cursor: pointer; 
     border-radius: 12px; 
     transition: background-color 0.3s, transform 0.3s, background 0.3s; 
 }
 
-
-
-
 .choice-button:hover {
-    background: linear-gradient(to right,#FF4500, #FFA500); 
+    background: linear-gradient(to right, #FF4500, #FFA500); /* Gradient from very dark orange to regular orange on hover */
     transform: scale(1.05); 
 }
