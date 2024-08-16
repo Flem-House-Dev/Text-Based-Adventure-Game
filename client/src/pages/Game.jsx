@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_GAME } from '../utils/queries';
-import { UPDATE_PROGRESS } from '../utils/mutations';
 
 const Game = () => {
   // Retrieve game data, update progress mutation, and set scenes
   const { loading, error, data } = useQuery(GET_GAME);
-  const [updateProgress] = useMutation(UPDATE_PROGRESS);
   const [currentSceneId, setCurrentSceneId] = useState(null);
 
   useEffect(() => {
@@ -20,12 +18,7 @@ const Game = () => {
   const handleAction = async (nextSceneId) => {
     // Set the current scene as the next scene
     setCurrentSceneId(nextSceneId);
-    try {
-      // Update user progress by matching userId with the current scene
-      await updateProgress({ variables: { userId: 'USER_ID', currentSceneId: nextSceneId } });
-    } catch (err) {
-      console.error('Error updating progress:', err.message);
-    }
+ 
   };
 
   if (loading) return <p>Loading...</p>;
