@@ -9,7 +9,7 @@ A MERN stack single-page application allowing users to signup and login to save 
 is provided and a button to start the game. For each prompt of the game, users are given two choices to take action that leads the user down a path
 until an end result is met.
 
-
+![alt text](image.png)
 ## Table of Content
 -[Description](#Description)
 -[Process](#Process)
