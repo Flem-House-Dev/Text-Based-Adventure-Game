@@ -42,7 +42,7 @@ const typeDefs = `
   }
 
   type AuthPayload {
-    token: ID!
+    token: String!
     user: User!
   }
 `;
