@@ -45,7 +45,11 @@ const Game = () => {
           <p>{currentScene.description}</p>
           <div>
             {currentScene.actions.map(action => (
-              <button key={action.nextSceneId} onClick={() => handleAction(action.nextSceneId)}>
+              <button
+                key={action.nextSceneId}
+                className="choice-button" // Add the choice-button class here
+                onClick={() => handleAction(action.nextSceneId)}
+              >
                 {action.actionText}
               </button>
             ))}
