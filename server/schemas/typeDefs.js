@@ -13,6 +13,7 @@ const typeDefs = `
   type Scene {
     sceneId: String!
     description: String!
+    image: String
     actions: [Action!]!
   }
 
