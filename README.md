@@ -2,14 +2,13 @@
 
 [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Link to site: 
+Link to site: https://text-based-adventure-game.onrender.com/
 
 ## Description
 A MERN stack single-page application allowing users to signup and login to save user progress. On the dashboard, a quick description of the game
 is provided and a button to start the game. For each prompt of the game, users are given two choices to take action that leads the user down a path
 until an end result is met.
 
-![alt text](image.png)
 ## Table of Content
 -[Description](#Description)
 -[Process](#Process)
