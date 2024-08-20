@@ -66,7 +66,8 @@ const resolvers = {
           password
         });
         const result = await user.save();
-        return { ...result._doc, password: null }; 
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        return { ...result._doc, password: null, token }; 
       } catch (error) {
         throw new Error('Error adding user');
       }
