@@ -21,8 +21,7 @@ This is a single-page application built with the MERN stack, allowing users to s
 - [Access](#access)  
 - [Usage](#usage)  
 - [License](#license)  
-- [Contributors](#contributors)  
-- [Acknowledgements](#acknowledgements)  
+- [Contributors](#contributors)   
 
 ---
 
