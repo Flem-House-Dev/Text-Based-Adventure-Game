@@ -49,10 +49,7 @@ This repository is licensed under the [MIT](https://opensource.org/licenses/MIT)
 - Logan New  
 - Sean Crocker  
 - David Waweru  
-- Mackenzie Moore  
-
-## Acknowledgements  
-This project was built using knowledge and tools provided by the Vanderbilt Bootcamp.  
+- Mackenzie Moore    
 
 ---
 
