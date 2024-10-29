@@ -1,52 +1,59 @@
-# Text Based Adventure Game
+# Text-Based Adventure Game  
 
 [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Link to site: https://text-based-adventure-game.onrender.com/
+Link to Site: [Text-Based Adventure Game](https://text-based-adventure-game.onrender.com/)
 
-## Description
-A MERN stack single-page application allowing users to signup and login to save user progress. On the dashboard, a quick description of the game
-is provided and a button to start the game. For each prompt of the game, users are given two choices to take action that leads the user down a path
-until an end result is met.
+## Description  
+This is a single-page application built with the MERN stack, allowing users to sign up and log in to save their progress. On the dashboard, users can view a brief game description and start the game. The adventure unfolds through a series of prompts, each presenting two choices that guide the user through different narrative paths until an outcome is reached.
 
-## Table of Content
--[Description](#Description)
--[Process](#Process)
--[Installation](#Installation)
--[Usage](#Usage)
--[Licenses](#Licenses)
--[Contribution](#Contribution)
--[Test](#Test)
--[Acknowledgement](#Acknowledgement)
+## Tech Stack  
+- **Frontend**: React, JavaScript, Bootstrap  
+- **Backend**: Node.js, Express  
+- **Database**: MongoDB, Mongoose ODM  
+- **API**: GraphQL (queries, mutations, type definitions, resolvers)  
+- **Deployment**: Render  
 
-<img src="./client/src/assets/ss1.png"/>
-<img src="./client/src/assets/ss4.png"/>
-<img src="./client/src/assets/ss3.png"/>
-<img src="./client/src/assets/ss2.png"/>
+## Table of Contents  
+- [Description](#description)  
+- [Tech Stack](#tech-stack)  
+- [Process](#process)  
+- [Access](#access)  
+- [Usage](#usage)  
+- [License](#license)  
+- [Contributors](#contributors)   
 
-## Process
-The process included copying over a basic MERN stack activity from the Vanderbilt bootcamp to start. The user model was modified to fit our application including a username, email, and password. Main.jsx and App.jsx was edited to feature four pages: Dashboard, Login, Signup, and the Game page which are all accessed from the header. The Dashboard features a 'start game' button that once pressed starts up the game. Front-end and back-end files were updated to fit our game including the queries, mutations, typeDefs, and resolvers. The seeds for the game was implemeneted and the UI features Bootstrap styling.
+---
 
+## Process  
+The project started by adapting a basic MERN stack activity from the Vanderbilt Bootcamp. The following modifications were made:  
+- **User Model:** Updated to include username, email, and password for authentication.  
+- **React Components:** `Main.jsx` and `App.jsx` were structured to feature four key pages—Dashboard, Login, Signup, and Game, accessible from the header.  
+- **Game Logic:** The game starts from the Dashboard when the **Start Game** button is clicked. Each prompt presents two actions, leading to different narrative outcomes.  
+- **GraphQL Implementation:** Updated front-end and back-end files to include custom queries, mutations, type definitions, and resolvers for managing game state and user data.  
+- **UI Design:** Bootstrap was used for styling to enhance the user interface.  
+- **Database Seeding:** Seed data was added to initialize the game content.
 
-## Installation
-To install this application, copy the ssh key from my github repo and clone it into your respository. Do an npm install then run these commands: npm run seed, npm run start.
+## Access  
+Explore the game here: [Text-Based Adventure Game](https://text-based-adventure-game.onrender.com/).
 
+## Usage  
+This game is designed purely for entertainment. After logging in, users can start the game and choose between two actions per prompt. Each decision affects the path and outcome of the story.
 
-## Usage
-A fun game purely for an enjoyable experience! When clicking start game, you have the choice between two actions per prompt.
+## License  
+This repository is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
 
+## Contributors  
+- Jeremy Fleming  
+- Logan New  
+- Sean Crocker  
+- David Waweru  
+- Mackenzie Moore    
 
-## Licenses
-This repository is using the [MIT](https://opensource.org/licenses/MIT) license.
+---
 
-
-## Contribution
-Contributors include Jeremy Fleming, Logan New, Sean Crocker, David Waweru, and Mackenzie Moore
-
-
-## Test
-To test this application, simply open the applcation in VScode to try it out.
-
-
-## Acknowledgement
-Project was done by the knowledge learned from the Vanderbilt bootcamp.
+## Screenshots  
+![Screenshot 1](./client/src/assets/ss1.png)  
+![Screenshot 2](./client/src/assets/ss4.png)  
+![Screenshot 3](./client/src/assets/ss3.png)  
+![Screenshot 4](./client/src/assets/ss2.png)
