@@ -3,6 +3,7 @@ const typeDefs = `
     _id: ID!
     username: String!
     email: String!
+    token: String!
   }
 
   type Action {
@@ -13,6 +14,7 @@ const typeDefs = `
   type Scene {
     sceneId: String!
     description: String!
+    image: String
     actions: [Action!]!
   }
 

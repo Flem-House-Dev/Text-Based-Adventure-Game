@@ -6,6 +6,7 @@
       {
         "sceneId": "start",
         "description": "You find yourself at the entrance of a mysterious forest. The path ahead splits into two directions. To the left, the forest seems darker, with the sound of rustling leaves and distant howls. To the right, you can hear the faint sound of flowing water, and the air feels cooler.",
+        "image": "/assets/images/forest.png",
         "actions": [
           { "actionText": "Take the left path", "nextSceneId": "dark_forest" },
           { "actionText": "Take the right path", "nextSceneId": "river_edge" }
@@ -14,6 +15,7 @@
       {
         "sceneId": "dark_forest",
         "description": "The forest grows darker as you venture deeper. Shadows flicker in the corners of your vision. Suddenly, the path splits again, one leading up a steep hill covered in thorny bushes, and the other descending into a foggy ravine.",
+        "image": "/assets/images/dark.png",
         "actions": [
           { "actionText": "Climb the hill", "nextSceneId": "thorny_hill" },
           { "actionText": "Descend into the ravine", "nextSceneId": "foggy_ravine" }
@@ -22,6 +24,7 @@
       {
         "sceneId": "river_edge",
         "description": "You arrive at the edge of a fast-flowing river. The water is clear, but the current looks strong. Across the river, you see a small cave entrance partially hidden by vines. Further downstream, there seems to be a rickety wooden bridge.",
+        "image": "/assets/images/river.png",
         "actions": [
           { "actionText": "Enter the cave", "nextSceneId": "hidden_cave" },
           { "actionText": "Cross the bridge", "nextSceneId": "rickety_bridge" }
@@ -30,6 +33,7 @@
       {
         "sceneId": "thorny_hill",
         "description": "The climb is tough, and the thorns tear at your clothes. As you reach the top, you see a small hut with smoke rising from the chimney. Nearby, there's a glistening pond that looks inviting.",
+        "image": "/assets/images/thorny.png",
         "actions": [
           { "actionText": "Approach the hut", "nextSceneId": "mysterious_hut" },
           { "actionText": "Inspect the pond", "nextSceneId": "glistening_pond" }
@@ -38,6 +42,7 @@
       {
         "sceneId": "foggy_ravine",
         "description": "The fog thickens as you descend, making it hard to see. You feel the ground become soft and hear the sound of something moving in the mist. Ahead, you can either continue forward into the unknown or retreat back up the hill.",
+        "image": "/assets/images/foggy.png",
         "actions": [
           { "actionText": "Press forward", "nextSceneId": "monster_encounter" },
           { "actionText": "Retreat", "nextSceneId": "start" }
@@ -46,6 +51,7 @@
       {
         "sceneId": "hidden_cave",
         "description": "The cave is dark and damp. As you explore, you stumble upon an ancient chest covered in dust. Nearby, you notice a faint light coming from deeper within the cave.",
+        "image": "/assets/images/cave.png",
         "actions": [
           { "actionText": "Open the chest", "nextSceneId": "ancient_chest" },
           { "actionText": "Follow the light", "nextSceneId": "hidden_treasure" }
@@ -54,6 +60,7 @@
       {
         "sceneId": "rickety_bridge",
         "description": "The bridge creaks under your weight. Halfway across, the wood starts to splinter. You can either run for the other side or carefully try to balance your way across.",
+        "image": "/assets/images/bridge.png",
         "actions": [
           { "actionText": "Run", "nextSceneId": "bridge_collapse" },
           { "actionText": "Balance carefully", "nextSceneId": "safe_crossing" }
@@ -62,6 +69,7 @@
       {
         "sceneId": "mysterious_hut",
         "description": "An old woman answers the door. She seems friendly and offers you a choice: a warm meal or a strange potion that she claims will give you great power.",
+        "image": "/assets/images/hut.png",
         "actions": [
           { "actionText": "Accept the meal", "nextSceneId": "poisoned_meal" },
           { "actionText": "Drink the potion", "nextSceneId": "super_strength" }
@@ -70,6 +78,7 @@
       {
         "sceneId": "glistening_pond",
         "description": "The pond is eerily calm. As you peer into the water, you see your reflection change into something monstrous. Suddenly, a hand reaches out from the water towards you.",
+        "image": "/assets/images/pond.png",
         "actions": [
           { "actionText": "Touch the hand", "nextSceneId": "water_creature" },
           { "actionText": "Step back", "nextSceneId": "pond_safe" }
@@ -78,6 +87,7 @@
       {
         "sceneId": "monster_encounter",
         "description": "A giant beast emerges from the mist, its eyes glowing red. You have nowhere to run. Do you try to fight the monster or attempt to reason with it?",
+        "image": "/assets/images/monster.png",
         "actions": [
           { "actionText": "Fight", "nextSceneId": "monster_defeat" },
           { "actionText": "Reason", "nextSceneId": "monster_friend" }
@@ -86,6 +96,7 @@
       {
         "sceneId": "ancient_chest",
         "description": "You open the chest to find it filled with gold and jewels. However, the moment you touch the treasure, the cave starts to collapse around you.",
+        "image": "/assets/images/chest.png",
         "actions": [
           { "actionText": "Grab as much as you can", "nextSceneId": "treasure_collapse" },
           { "actionText": "Run for your life", "nextSceneId": "narrow_escape" }
@@ -94,6 +105,7 @@
       {
         "sceneId": "hidden_treasure",
         "description": "You follow the light and discover a hidden room filled with ancient artifacts. Among them is a magical sword that glows with a faint blue light.",
+        "image": "/assets/images/sword.png",
         "actions": [
           { "actionText": "Take the sword", "nextSceneId": "magic_sword" },
           { "actionText": "Leave it be", "nextSceneId": "safe_exit" }
@@ -102,6 +114,7 @@
       {
         "sceneId": "bridge_collapse",
         "description": "As you run, the bridge collapses beneath you. You fall into the river below, struggling against the strong current.",
+        "image": "/assets/images/current.png",
         "actions": [
           { "actionText": "Swim to shore", "nextSceneId": "river_bank" },
           { "actionText": "Let the current take you", "nextSceneId": "waterfall_plunge" }
@@ -110,6 +123,7 @@
       {
         "sceneId": "safe_crossing",
         "description": "You carefully balance your way across the bridge, making it safely to the other side. As you step off the bridge, you find yourself in a lush meadow filled with wildflowers.",
+        "image": "/assets/images/meadow.png",
         "actions": [
           { "actionText": "Explore the meadow", "nextSceneId": "meadow_explore" },
           { "actionText": "Rest in the meadow", "nextSceneId": "meadow_rest" }
@@ -118,11 +132,13 @@
       {
         "sceneId": "poisoned_meal",
         "description": "You eat the meal, but soon realize something is wrong. The room spins, and you collapse to the floor. The last thing you hear is the old woman laughing.",
+        "image": "/assets/images/meal.png",
         "actions": []
       },
       {
         "sceneId": "super_strength",
         "description": "The potion grants you incredible strength. You feel unstoppable, but you notice your reflection in a mirror nearby has started to change. Your muscles bulge unnaturally, and you begin to lose control of your actions.",
+        "image": "/assets/images/potion.png",
         "actions": [
           { "actionText": "Embrace the power", "nextSceneId": "power_madness" },
           { "actionText": "Resist the change", "nextSceneId": "strength_control" }
@@ -131,6 +147,7 @@
       {
         "sceneId": "water_creature",
         "description": "The hand pulls you into the water, and you find yourself face to face with a water creature. It speaks to you in a language you don't understand but gestures towards a glowing pearl in the pond.",
+        "image": "/assets/images/creature.png",
         "actions": [
           { "actionText": "Take the pearl", "nextSceneId": "pearl_power" },
           { "actionText": "Refuse the offer", "nextSceneId": "pond_release" }
@@ -139,6 +156,7 @@
       {
         "sceneId": "pond_safe",
         "description": "You step back just in time as the hand recedes into the water. The pond returns to its calm state, and you feel a strange sense of peace.",
+        "image": "/assets/images/water.png",
         "actions": [
           { "actionText": "Leave the pond", "nextSceneId": "safe_exit" },
           { "actionText": "Throw a stone into the water", "nextSceneId": "pond_awakening" }
@@ -147,6 +165,7 @@
       {
         "sceneId": "monster_defeat",
         "description": "You fight the monster with all your might and manage to defeat it. Exhausted, you collapse to the ground, but the monster's body starts to disintegrate, revealing a hidden path beneath it.",
+        "image": "/assets/images/fight.png",
         "actions": [ 
           { "actionText": "Take the hidden path", "nextSceneId": "hidden_treasure" },
           { "actionText": "Rest before moving on", "nextSceneId": "safe_exit" }
@@ -155,6 +174,7 @@
       {
         "sceneId": "monster_friend",
         "description": "You speak calmly to the beast, and it surprisingly responds. The monster turns out to be a guardian of the forest, misunderstood by travelers. It offers you a gift for your kindness.",
+        "image": "/assets/images/nice.png",
         "actions": [
           { "actionText": "Accept the gift", "nextSceneId": "guardian_gift" },
           { "actionText": "Refuse and continue on", "nextSceneId": "safe_exit" }
@@ -163,11 +183,13 @@
       {
         "sceneId": "treasure_collapse",
         "description": "As you grab the treasure, the cave begins to collapse. You try to escape but are trapped by falling rocks. The treasure may have been yours, but now it will be your tomb.",
+        "image": "/assets/images/tomb.png",
         "actions": []
       },
       {
         "sceneId": "narrow_escape",
         "description": "You leave the treasure and sprint towards the exit, narrowly escaping as the cave collapses behind you. The world outside feels much safer after that close call.",
+        "image": "/assets/images/escape.png",
         "actions": [
           { "actionText": "Continue your journey", "nextSceneId": "safe_exit" }
         ]
@@ -175,6 +197,7 @@
       {
         "sceneId": "magic_sword",
         "description": "You take the sword, and it pulses with a powerful energy. As you hold it, you feel a connection to the ancient heroes who once wielded it.",
+        "image": "/assets/images/grab.png",
         "actions": [
           { "actionText": "Wield the sword", "nextSceneId": "heroic_deed" },
           { "actionText": "Keep it for protection", "nextSceneId": "safe_exit" }
@@ -183,11 +206,13 @@
       {
         "sceneId": "safe_exit",
         "description": "You safely make your way out of the forest, the adventures you faced still fresh in your mind. The journey is over, for now, but the memories will last a lifetime.",
+        "image": "/assets/images/bright.png",
         "actions": []
       },
       {
         "sceneId": "river_bank",
         "description": "You manage to swim to the riverbank, exhausted but alive. The forest seems less ominous now, and you see a clear path leading forward.",
+        "image": "/assets/images/bank.png",
         "actions": [
           { "actionText": "Follow the path", "nextSceneId": "safe_exit" }
         ]
@@ -195,11 +220,13 @@
       {
         "sceneId": "waterfall_plunge",
         "description": "The current pulls you towards a waterfall. Despite your best efforts, you are swept over the edge, plunging into the abyss below.",
+        "image": "/assets/images/waterfall.png",
         "actions": []
       },
       {
         "sceneId": "meadow_explore",
         "description": "You explore the meadow, discovering rare herbs and flowers. As you gather them, you feel a sense of accomplishment and peace.",
+        "image": "/assets/images/flower.png",
         "actions": [
           { "actionText": "Rest in the meadow", "nextSceneId": "meadow_rest" }
         ]
@@ -207,16 +234,19 @@
       {
         "sceneId": "meadow_rest",
         "description": "You lie down in the meadow, the soft grass cushioning your body. As you close your eyes, the sounds of nature lull you into a deep, restful sleep.",
+        "image": "/assets/images/lie.png",
         "actions": []
       },
       {
         "sceneId": "power_madness",
         "description": "You embrace the power, but it consumes you. You become a mindless beast, driven by rage and strength. Your humanity is lost.",
+        "image": "/assets/images/power.png",
         "actions": []
       },
       {
         "sceneId": "strength_control",
         "description": "You fight the changes, regaining control over your newfound strength. You feel more powerful, but with your mind intact.",
+        "image": "/assets/images/strength.png",
         "actions": [
           { "actionText": "Use your strength for good", "nextSceneId": "heroic_deed" },
           { "actionText": "Continue cautiously", "nextSceneId": "safe_exit" }
@@ -225,6 +255,7 @@
       {
         "sceneId": "pearl_power",
         "description": "You take the pearl, and the water creature nods approvingly. The pearl grants you the ability to breathe underwater and communicate with aquatic creatures.",
+        "image": "/assets/images/pearl.png",
         "actions": [
           { "actionText": "Explore the underwater world", "nextSceneId": "underwater_exploration" },
           { "actionText": "Keep the pearl and leave", "nextSceneId": "safe_exit" }
@@ -233,6 +264,7 @@
       {
         "sceneId": "pond_release",
         "description": "You refuse the offer, and the water creature releases you. As you emerge from the pond, you feel a sense of relief and clarity.",
+        "image": "/assets/images/release.png",
         "actions": [
           { "actionText": "Continue your journey", "nextSceneId": "safe_exit" }
         ]
@@ -240,6 +272,7 @@
       {
         "sceneId": "pond_awakening",
         "description": "You throw a stone into the pond, and the water ripples violently. Suddenly, the pond erupts, and a giant water serpent emerges, furious at being disturbed.",
+        "image": "/assets/images/serpent.png",
         "actions": [
           { "actionText": "Fight the serpent", "nextSceneId": "serpent_battle" },
           { "actionText": "Flee into the forest", "nextSceneId": "safe_exit" }
@@ -248,11 +281,13 @@
       {
         "sceneId": "heroic_deed",
         "description": "Armed with your newfound power or weapon, you venture forth and perform heroic deeds, becoming a legend in the land.",
+        "image": "/assets/images/hero.png",
         "actions": []
       },
       {
         "sceneId": "guardian_gift",
         "description": "The guardian gives you a magical amulet that grants protection from harm. You feel a warm glow as you put it on, knowing it will keep you safe on your journey.",
+        "image": "/assets/images/amulet.png",
         "actions": [
           { "actionText": "Continue your journey", "nextSceneId": "safe_exit" }
         ]
@@ -260,6 +295,7 @@
       {
         "sceneId": "underwater_exploration",
         "description": "With the pearl's power, you dive into the depths of the river, discovering hidden ruins and treasures long forgotten. The underwater world is vast and full of mysteries.",
+        "image": "/assets/images/world.png",
         "actions": [
           { "actionText": "Return to the surface", "nextSceneId": "safe_exit" }
         ]
@@ -267,6 +303,7 @@
       {
         "sceneId": "serpent_battle",
         "description": "You engage in a fierce battle with the water serpent. Using all your strength and wits, you manage to defeat the creature, earning the respect of the forest's spirits.",
+        "image": "/assets/images/victory.png",
         "actions": [
           { "actionText": "Leave the pond", "nextSceneId": "safe_exit" }
         ]

@@ -42,6 +42,7 @@ export const GET_GAME = gql`
       scenes {
         sceneId
         description
+        image
         actions {
           nextSceneId
           actionText
